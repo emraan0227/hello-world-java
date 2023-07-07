@@ -1,0 +1,16 @@
+
+  version: 0.2
+
+phases:
+  pre_build:
+   commands:
+       - echo "creating <path-to-folder> folder"
+       - mkdir -p ./.gitignore/
+  build:
+    commands:
+        - echo "Copying the file"
+        - cp index.html ./.gitignore>/
+artifacts:
+   files:
+      - <path-to-folder>/**/*
+      - appspec.yml
