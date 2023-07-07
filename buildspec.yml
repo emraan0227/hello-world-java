@@ -1,16 +1,17 @@
 
-  version: 0.2
+version: 0.2
 
 phases:
   pre_build:
-   commands:
-       - echo "creating <path-to-folder> folder"
-       - mkdir -p ./.gitignore/
+    commands:
+      - echo Entered the build phase...
+      - mvn clean package
   build:
     commands:
-        - echo "Copying the file"
-        - cp index.html ./.gitignore>/
+      - echo Build completed successfully
+      - java -jar /codebuild/output/<service-role-ARN>/build-output/your-app.jar
+
 artifacts:
-   files:
-      - <path-to-folder>/**/*
-      - appspec.yml
+  files:
+    - <path-to-folder>/**/*
+    - appspec.yml
